@@ -1,3 +1,0 @@
-slurmstepd: error: execve(): torchrun: No such file or directory
-srun: error: viper03: task 0: Exited with exit code 2
-/var/spool/slurmd/job23272/slurm_script: line 36: --save_dir: command not found

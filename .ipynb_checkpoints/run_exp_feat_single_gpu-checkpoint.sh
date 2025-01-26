@@ -7,6 +7,24 @@
 #SBATCH --output=saida_%j.out
 #SBATCH --error=erro_%j.err         # Error file
 
+# Load Conda
+export PATH="/opt/anaconda3/bin:$PATH"
+source /opt/anaconda3/etc/profile.d/conda.sh
+
+# Path to your environment.yml file
+ENV_YML_PATH="/home/victor.oliveira/deep-fake-detection-single-GPU/environment.yml"
+
+# Create the conda environment using the environment.yml file
+echo "Creating conda environment from $ENV_YML_PATH..."
+conda env create -f $ENV_YML_PATH
+
+# Activate the new environment
+# Note: Conda might not activate environments immediately after creation in batch jobs
+conda activate $(basename $ENV_YML_PATH .yml)
+
+# Check if the environment is activated
+echo "Activated environments:"
+conda info --envs
 
 # Define the arguments for your test script
 GPUs="$1"

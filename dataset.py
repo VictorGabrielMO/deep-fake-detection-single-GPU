@@ -151,7 +151,7 @@ class ArtiFact(Dataset):
             subdir_metadata['image_path'] = subdir_metadata['image_path'].apply(lambda x: os.path.join(root_dir, x))
              # Selecionar uma porcentagem dos dados
             if load_percentage < 100:
-                sample_size = int(len(subdir_metadata) * (load_percentage / 100))
+                sample_size = int( len(subdir_metadata) * (load_percentage / 100)) # changed   
                 self.metadata = subdir_metadata.sample(sample_size, random_state=42)
             else:
                 self.metadata = subdir_metadata

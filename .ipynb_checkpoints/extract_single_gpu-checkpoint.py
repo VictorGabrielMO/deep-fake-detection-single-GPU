@@ -3,13 +3,13 @@ import os
 import torch.nn as nn
 import numpy as np
 from tqdm import tqdm
-from sklearn.metrics import accuracy_score, average_precision_score, roc_auc_score
+#from sklearn.metrics import accuracy_score, average_precision_score, roc_auc_score
 #import torch.distributed as dist  # If distributed training is being used
-import wandb  # If Weights & Biases is being used for logging
+#import wandb  # If Weights & Biases is being used for logging
 
 from torchvision import transforms
 from torch.utils.data import DataLoader, TensorDataset
-import timm 
+#import timm 
 
 import torchvision.models as vis_models
 
@@ -64,7 +64,7 @@ def extract_evaluation_features(
   
 
     if data_type == 'ArtiFact':
-        test_dataset = ArtiFact(dataset_path, label)
+        test_dataset = ArtiFact(dataset_path, label, load_percentage=5)
     else:
         raise ValueError("wrong dataset input")
 
@@ -102,13 +102,11 @@ def extract_evaluation_features(
     
 
     #disable_tqdm = dist.get_rank() != 0
-    #data_loader_with_tqdm = tqdm(test_dataloader, "test dataloading", disable=disable_tqdm)
+    data_loader_with_tqdm = tqdm(test_dataloader, "test dataloading")
 
     print(f"### Iniciando extraçao de features no dataset {dataset_name} ...")
-    i = 0
-    num_batches = len(test_dataloader)
     with torch.no_grad():
-        for inputs, labels in test_dataloader:
+        for inputs, labels in data_loader_with_tqdm:
             inputs = inputs.to(device)
             y_pred, embeddings = model(inputs, return_feats=True)
             embeddings = embeddings.detach().cpu()
@@ -117,13 +115,11 @@ def extract_evaluation_features(
             features = np.concatenate((features, embeddings.numpy()), axis=0)
             pred_list.extend(y_pred.sigmoid().detach().cpu().numpy())
             labels_list.extend(labels.cpu().numpy())
-            if (i % 100 == 0):
-                print(f"Numero de batches computados: {i} / {num_batches}")
-            
-            i += 1
 
     #features = torch.cat(features)
     labels_list, pred_list = np.array(labels_list), np.array(pred_list)
+    pred_list = np.where(pred_list < 0.5, 0, 1)
+    
     labels_list[labels_list > 1] = 1
     
     #labels_list = torch.cat(labels_list).numpy()

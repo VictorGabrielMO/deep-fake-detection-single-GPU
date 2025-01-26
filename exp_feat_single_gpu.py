@@ -2,13 +2,13 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 import torchvision.transforms as transforms
-from sklearn.metrics import average_precision_score, precision_score, recall_score, accuracy_score
+#from sklearn.metrics import average_precision_score, precision_score, recall_score, accuracy_score
 import numpy as np
 from PIL import Image
 import os
 #import clip
 from tqdm import tqdm
-import timm
+#import timm
 import argparse
 import random
 from sklearn.metrics import accuracy_score, precision_score
@@ -148,7 +148,6 @@ if __name__ == "__main__":
     # Pretty print the arguments
     print("\nSelected Configuration:")
     print("-" * 30)
-    print(f"Device: {local_rank}")
     print(f"Dataset Type: {args.data_type}")
     print(f"Model type: {args.model_name}")
     print(f"Ratio of mask: {ratio}")
@@ -205,7 +204,30 @@ if __name__ == "__main__":
 
             
         fake_datasets = {
-            "big_gan": "/storage/datasets/gabriela.barreto/artifact/big_gan"
+            "big_gan": "/storage/datasets/gabriela.barreto/artifact/big_gan",
+            "cips": "/storage/datasets/gabriela.barreto/artifact/cips",
+            "ddpm": "/storage/datasets/gabriela.barreto/artifact/ddpm",
+            "denoising_diffusion_gan": "/storage/datasets/gabriela.barreto/artifact/denoising_diffusion_gan",
+            "diffusion_gan": "/storage/datasets/gabriela.barreto/artifact/diffusion_gan",
+            "face_synthetics": "/storage/datasets/gabriela.barreto/artifact/face_synthetics",
+            "gansformer": "/storage/datasets/gabriela.barreto/artifact/gansformer",
+            "gau_gan": "/storage/datasets/gabriela.barreto/artifact/gau_gan",
+            "generative_inpainting": "/storage/datasets/gabriela.barreto/artifact/generative_inpainting",
+            "glide": "/storage/datasets/gabriela.barreto/artifact/glide",
+            "lama": "/storage/datasets/gabriela.barreto/artifact/lama",
+            "latent_diffusion": "/storage/datasets/gabriela.barreto/artifact/latent_diffusion",
+            "mat": "/storage/datasets/gabriela.barreto/artifact/mat",
+            "palette": "/storage/datasets/gabriela.barreto/artifact/palette",
+            "pro_gan": "/storage/datasets/gabriela.barreto/artifact/pro_gan",
+            "projected_gan": "/storage/datasets/gabriela.barreto/artifact/projected_gan",
+            "sfhq": "/storage/datasets/gabriela.barreto/artifact/sfhq",
+            "stable_diffusion": "/storage/datasets/gabriela.barreto/artifact/stable_diffusion",
+            "star_gan": "/storage/datasets/gabriela.barreto/artifact/star_gan",
+            "stylegan1": "/storage/datasets/gabriela.barreto/artifact/stylegan1",
+            "stylegan2": "/storage/datasets/gabriela.barreto/artifact/stylegan2",
+            "stylegan3": "/storage/datasets/gabriela.barreto/artifact/stylegan3",
+            "taming_transformer": "/storage/datasets/gabriela.barreto/artifact/taming_transformer",
+            "vq_diffusion": "/storage/datasets/gabriela.barreto/artifact/vq_diffusion"
         }
 
     else:
@@ -214,9 +236,11 @@ if __name__ == "__main__":
 
     
     
-    #all_fake_features = np.empty((0, feature_dim))
-    #all_real_features = np.empty((0, feature_dim))
+    all_fake_features = np.empty((0, 2048))
+    all_fake_preds = np.empty((0, 1))
     
+    all_real_features = np.empty((0, 2048))
+    all_real_preds = np.empty((0, 1))
     for dataset_name, dataset_path in real_datasets.items():
         
         prediction_real, features_real, _ = extract_evaluation_features(
@@ -233,9 +257,9 @@ if __name__ == "__main__":
             label=0
         )
 
-        #features_real = features_real.numpy()
-        np.savez(os.path.join(results_dir,f"real_{dataset_name}.npz"), y_hat=prediction_real ,feat=features_real )
-        
+        #np.savez(os.path.join(results_dir,f"real_{dataset_name}.npz"), y_hat=prediction_real ,feat=features_real )
+        all_real_features = np.concatenate((all_real_features, features_real), axis=0)
+        all_real_preds = np.concatenate((all_real_preds, prediction_real), axis=0)
         
     for dataset_name, dataset_path in fake_datasets.items():
         prediction_fake, features_fake, _ = extract_evaluation_features(
@@ -252,8 +276,10 @@ if __name__ == "__main__":
             label=0
         )
 
-        #features_fake = features_fake.numpy()
-        np.savez(os.path.join(results_dir,f"fake_{dataset_name}.npz"), y_hat = prediction_fake, feat=features_fake )
+        #np.savez(os.path.join(results_dir,f"fake_{dataset_name}.npz"), y_hat = prediction_fake, feat=features_fake )
+        all_fake_features = np.concatenate((all_fake_features, features_fake), axis=0)
+        all_fake_preds = np.concatenate((all_fake_preds, prediction_fake), axis=0)
     
-   # np.savez( os.path.join(results_dir,"all_features.npz"), fake=all_fake_features, real = all_real_features )
+    np.savez( os.path.join(results_dir,"experiment_results.npz"), fake_feats= all_fake_features, fake_preds = all_fake_preds,
+             real_feats = all_real_features, real_preds = all_real_preds)
     

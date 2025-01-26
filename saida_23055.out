@@ -1,32 +1,0 @@
-Using 1 GPUs with IDs: 0
-viper01
-srun: Job 23055 step creation temporarily disabled, retrying (Requested nodes are busy)
-srun: Step created for job 23055
-
-Selected Configuration:
-------------------------------
-Device: 0
-Dataset Type: ArtiFact
-Model type: RN50
-Ratio of mask: 15
-Batch Size: 64
-Mask Type: spectral
-Checkpoint Type: checkpoints/mask_15/rn50ft_spectralmask.pth
-Results saved to: results/artifact/rn50ft_spectralmask15.txt
------------------------------- 
-
-
-Evaluating afhq
-
-viper01:313116:313116 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
-NCCL version 2.7.8+cuda10.2
-/home/gabrielatavares/.local/lib/python3.8/site-packages/torch/nn/parallel/distributed.py:487: UserWarning: Single-Process Multi-GPU is not the recommended mode for DDP. In this mode, each DDP instance operates on multiple devices and creates multiple module replicas within one process. The overhead of scatter/gather and GIL contention in every forward pass can slow down training. Please consider using one DDP instance per device or per module replica by explicitly setting device_ids or CUDA_VISIBLE_DEVICES. 
-  warnings.warn(
-test dataloading:   0%|                                                                                                               | 0/5 [00:00<?, ?it/s]test dataloading:  20%|████████████████████▌                                                                                  | 1/5 [00:04<00:17,  4.48s/it]test dataloading:  60%|█████████████████████████████████████████████████████████████▊                                         | 3/5 [00:04<00:02,  1.22s/it]test dataloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:04<00:00,  1.58it/s]test dataloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:04<00:00,  1.03it/s]
-/opt/anaconda3/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1221: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/opt/anaconda3/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1221: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 due to no true samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-
-Evaluating big_gan
-test dataloading:   0%|                                                                                                               | 0/2 [00:00<?, ?it/s]test dataloading:  50%|███████████████████████████████████████████████████▌                                                   | 1/2 [00:01<00:01,  1.26s/it]test dataloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.46it/s]

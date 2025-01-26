@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "exp_feat.py", line 1, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
-srun: error: viper03: task 0: Exited with exit code 1
