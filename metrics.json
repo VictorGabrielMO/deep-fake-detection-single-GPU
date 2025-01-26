@@ -1,0 +1,275 @@
+{
+    "afhq": {
+        "acc": 0.9987160617542981,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 31933,
+        "tn": 31892,
+        "fp": 41
+    },
+    "celebAHQ": {
+        "acc": 0.9986333333333334,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 30000,
+        "tn": 29959,
+        "fp": 41
+    },
+    "coco": {
+        "acc": 0.9986816889029942,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 163846,
+        "tn": 163630,
+        "fp": 216
+    },
+    "ffhq": {
+        "acc": 0.9987571428571429,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 70000,
+        "tn": 69913,
+        "fp": 87
+    },
+    "imagenet": {
+        "acc": 0.9967661280324007,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 96788,
+        "tn": 96475,
+        "fp": 313
+    },
+    "landscape": {
+        "acc": 0.9979157017137563,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 4318,
+        "tn": 4309,
+        "fp": 9
+    },
+    "lsun": {
+        "acc": 0.9994992237968852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 539163,
+        "tn": 538893,
+        "fp": 270
+    },
+    "metfaces": {
+        "acc": 0.9962574850299402,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 1336,
+        "tn": 1331,
+        "fp": 5
+    },
+    "cycle_gan": {
+        "acc": 0.9648915187376725,
+        "precision": 0.0,
+        "recall": 0.0,
+        "y_true": 15210,
+        "tn": 14676,
+        "fp": 534
+    },
+    "big_gan": {
+        "acc": 0.0887,
+        "precision": 1.0,
+        "recall": 0.0887,
+        "y_true": 10000,
+        "tp": 887,
+        "fn": 9113
+    },
+    "cips": {
+        "acc": 0.005714285714285714,
+        "precision": 1.0,
+        "recall": 0.005714285714285714,
+        "y_true": 11200,
+        "tp": 64,
+        "fn": 11136
+    },
+    "ddpm": {
+        "acc": 0.008928571428571428,
+        "precision": 1.0,
+        "recall": 0.008928571428571428,
+        "y_true": 896,
+        "tp": 8,
+        "fn": 888
+    },
+    "denoising_diffusion_gan": {
+        "acc": 0.0151,
+        "precision": 1.0,
+        "recall": 0.0151,
+        "y_true": 10000,
+        "tp": 151,
+        "fn": 9849
+    },
+    "diffusion_gan": {
+        "acc": 0.0481717933836332,
+        "precision": 1.0,
+        "recall": 0.0481717933836332,
+        "y_true": 15507,
+        "tp": 747,
+        "fn": 14760
+    },
+    "face_synthetics": {
+        "acc": 0.0001,
+        "precision": 1.0,
+        "recall": 0.0001,
+        "y_true": 10000,
+        "tp": 1,
+        "fn": 9999
+    },
+    "gansformer": {
+        "acc": 0.2096,
+        "precision": 1.0,
+        "recall": 0.2096,
+        "y_true": 10000,
+        "tp": 2096,
+        "fn": 7904
+    },
+    "gau_gan": {
+        "acc": 0.2362857142857143,
+        "precision": 1.0,
+        "recall": 0.2362857142857143,
+        "y_true": 7000,
+        "tp": 1654,
+        "fn": 5346
+    },
+    "generative_inpainting": {
+        "acc": 0.0125,
+        "precision": 1.0,
+        "recall": 0.0125,
+        "y_true": 22000,
+        "tp": 275,
+        "fn": 21725
+    },
+    "glide": {
+        "acc": 0.010668325120796058,
+        "precision": 1.0,
+        "recall": 0.010668325120796058,
+        "y_true": 20903,
+        "tp": 223,
+        "fn": 20680
+    },
+    "lama": {
+        "acc": 0.00862173649058895,
+        "precision": 1.0,
+        "recall": 0.00862173649058895,
+        "y_true": 24705,
+        "tp": 213,
+        "fn": 24492
+    },
+    "latent_diffusion": {
+        "acc": 0.0071,
+        "precision": 1.0,
+        "recall": 0.0071,
+        "y_true": 20000,
+        "tp": 142,
+        "fn": 19858
+    },
+    "mat": {
+        "acc": 0.008233333333333334,
+        "precision": 1.0,
+        "recall": 0.008233333333333334,
+        "y_true": 60000,
+        "tp": 494,
+        "fn": 59506
+    },
+    "palette": {
+        "acc": 0.009166666666666667,
+        "precision": 1.0,
+        "recall": 0.009166666666666667,
+        "y_true": 6000,
+        "tp": 55,
+        "fn": 5945
+    },
+    "pro_gan": {
+        "acc": 0.42635,
+        "precision": 1.0,
+        "recall": 0.42635,
+        "y_true": 40000,
+        "tp": 17054,
+        "fn": 22946
+    },
+    "projected_gan": {
+        "acc": 0.021166666666666667,
+        "precision": 1.0,
+        "recall": 0.021166666666666667,
+        "y_true": 12000,
+        "tp": 254,
+        "fn": 11746
+    },
+    "sfhq": {
+        "acc": 0.0022,
+        "precision": 1.0,
+        "recall": 0.0022,
+        "y_true": 10000,
+        "tp": 22,
+        "fn": 9978
+    },
+    "stable_diffusion": {
+        "acc": 0.00195858981533296,
+        "precision": 1.0,
+        "recall": 0.00195858981533296,
+        "y_true": 21444,
+        "tp": 42,
+        "fn": 21402
+    },
+    "star_gan": {
+        "acc": 0.19559779889944973,
+        "precision": 1.0,
+        "recall": 0.19559779889944973,
+        "y_true": 9995,
+        "tp": 1955,
+        "fn": 8040
+    },
+    "stylegan1": {
+        "acc": 0.0037,
+        "precision": 1.0,
+        "recall": 0.0037,
+        "y_true": 10000,
+        "tp": 37,
+        "fn": 9963
+    },
+    "stylegan2": {
+        "acc": 0.042458,
+        "precision": 1.0,
+        "recall": 0.042458,
+        "y_true": 1000000,
+        "tp": 42458,
+        "fn": 957542
+    },
+    "stylegan3": {
+        "acc": 0.015559931893244712,
+        "precision": 1.0,
+        "recall": 0.015559931893244712,
+        "y_true": 97494,
+        "tp": 1517,
+        "fn": 95977
+    },
+    "taming_transformer": {
+        "acc": 0.011638095238095237,
+        "precision": 1.0,
+        "recall": 0.011638095238095237,
+        "y_true": 105000,
+        "tp": 1222,
+        "fn": 103778
+    },
+    "vq_diffusion": {
+        "acc": 0.0144,
+        "precision": 1.0,
+        "recall": 0.0144,
+        "y_true": 10000,
+        "tp": 144,
+        "fn": 9856
+    },
+    "all_datasets": {
+        "acc": 0.4096517135558477,
+        "precision": 0.9792983845639142,
+        "recall": 0.0464432073692609,
+        "tp": 71715,
+        "tn": 951078,
+        "fp": 1516,
+        "fn": 1472429
+    }
+}
